@@ -1,5 +1,7 @@
 package interviewbit.Arrays.Bucketing;
 
+import java.util.Arrays;
+
 /**
  * You are given an array (zero indexed) of N non-negative integers, A0, A1 ,…, AN-1.
  * Find the minimum sub array Al, Al+1 ,…, Ar so if we sort(in ascending order) that sub array, then the whole array should get sorted.
@@ -40,7 +42,7 @@ public class MaxUnsortedArray {
         }
 
         /**
-         * Expand left window
+         * Compress left window
          */
         while (left >= 0 && min < A[left]) left--;
         /**
@@ -50,5 +52,13 @@ public class MaxUnsortedArray {
         return new int[]{left + 1, right - 1};
 
 
+    }
+
+
+    public static void main(String[] args) {
+        MaxUnsortedArray ma = new MaxUnsortedArray();
+        int[] a = {1, 3, 2, 4, 5};
+        int[] res = ma.subUnsort(a);
+        Arrays.stream(res).forEach(System.out::print);
     }
 }
