@@ -1,6 +1,4 @@
-package interviewbit.BinarySearch;
-
-import java.util.Arrays;
+package interviewbit.BinarySearch.SearchAnswer;
 
 /**
  * Given an array of integers A of size N and an integer B.

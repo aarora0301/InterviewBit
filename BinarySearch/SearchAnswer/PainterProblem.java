@@ -1,4 +1,4 @@
-package interviewbit.BinarySearch;
+package interviewbit.BinarySearch.SearchAnswer;
 
 /***
  *
