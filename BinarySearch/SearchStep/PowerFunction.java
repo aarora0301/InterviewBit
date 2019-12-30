@@ -1,4 +1,4 @@
-package interviewbit.BinarySearch;
+package interviewbit.BinarySearch.SearchStep;
 
 /***
  * Implement pow(x, n) % d.
