@@ -74,9 +74,51 @@ public class MaxContinousSeries {
         return result;
     }
 
+    /**
+     * Approach 2: Using Two pointers
+     *
+     * @param A
+     * @param B
+     * @return
+     */
+    public ArrayList<Integer> maxone_(ArrayList<Integer> A, int B) {
+        int left = 0, right = 0;
+        int index = 0, count = 0;
+        int flips = B;
+        while (right < A.size()) {
+            if (A.get(right).equals(1)) {
+                right++;
+            } else if (flips > 0) {  // A.get(right) == 0
+                right++;
+                flips--;
+            } else if (left < right) { // A.get(right) == 0 && flips == 0
+                flips += 1 - A.get(left);
+                left++;
+
+            } else { // A.get(right) == 0 && flips == 0 && left == right
+                left++;
+                right++;
+            }
+
+            if (right - left > count) {
+                index = left;
+                count = right - left;
+            }
+
+        }
+
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            result.add(index + i);
+        }
+        return result;
+    }
+
+
     public static void main(String[] args) {
         MaxContinousSeries mcs = new MaxContinousSeries();
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 1, 0));
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 1, 0, 1, 1, 0, 0, 1, 1, 1));
         System.out.println(mcs.maxone(list, 2));
+        System.out.println(mcs.maxone_(list, 2));
     }
 }
